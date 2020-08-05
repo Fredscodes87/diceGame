@@ -1,6 +1,4 @@
 var randNumber = () => Math.floor(Math.random() * 6) + 1;
-var p1die;
-var p2die;
 
 winner();
 
@@ -11,7 +9,8 @@ function player1Die() {
   var randImg1 = "images/dice" + randNumb + ".png";
 
   randImg.setAttribute("src", randImg1);
-  p1die = randNumb;
+  var p1die = randNumb;
+  return p1die;
 }
 
 function player2Die() {
@@ -22,12 +21,14 @@ function player2Die() {
 
   randImg.setAttribute("src", randImg2);
 
-  p2die = randNumb;
+  var p2die = randNumb;
+  return p2die;
 }
 function winner() {
   var winner;
-  player1Die();
-  player2Die();
+  var p1die = player1Die();
+  var p2die = player2Die();
+
   if (p1die > p2die) {
     winner = document.getElementById("winner").innerHTML = "✌️ Player 1 wins";
   } else if (p1die < p2die) {
